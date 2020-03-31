@@ -1,7 +1,6 @@
 package quiz.selenium;
 
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -56,9 +55,9 @@ public class SeleniumDriverHandler {
 
         return new ChromeDriver();
     }
-
+/*
     public static WebDriver getFirefoxDriver(){
-        /*
+
             Need to have an updated Firefox, but also need
             to download and put the geckodriver in your own home dir.
             See:
@@ -68,7 +67,7 @@ public class SeleniumDriverHandler {
 
             However, drivers for FireFox have been often unstable.
             Therefore, I do recommend to use Chrome instead
-         */
+
 
         setupDriverExecutable("geckodriver", "webdriver.gecko.driver");
 
@@ -79,4 +78,5 @@ public class SeleniumDriverHandler {
         return  new FirefoxDriver(desiredCapabilities);
     }
 
+*/
 }

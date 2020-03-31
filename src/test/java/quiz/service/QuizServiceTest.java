@@ -13,8 +13,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
@@ -35,7 +33,7 @@ public class QuizServiceTest extends ServiceTestBase{
     @Test
     public void testNoQuiz(){
 
-        Assertions.assertEquals(0, quizService.getQuizzes().size());
+        assertEquals(0, quizService.getQuizzes().size());
     }
 
     @Test
@@ -47,8 +45,8 @@ public class QuizServiceTest extends ServiceTestBase{
 
         long quizId = quizService.createQuiz(subId, question, "yes", "no", "may", "no idea", 0);
 
-        Assertions.assertEquals(1, quizService.getQuizzes().size());
-        Assertions.assertEquals(question, quizService.getQuiz(quizId).getQuestion());
+        assertEquals(1, quizService.getQuizzes().size());
+        assertEquals(question, quizService.getQuiz(quizId).getQuestion());
     }
 
 
@@ -81,23 +79,20 @@ public class QuizServiceTest extends ServiceTestBase{
         for(int i=0; i<50; i++){
 
             List<Quiz> quizzes = quizService.getRandomQuizzes(2, ctgId);
-            Assertions.assertEquals(2, quizzes.size());
+            assertEquals(2, quizzes.size());
 
             Quiz first = quizzes.get(0);
             Quiz second = quizzes.get(1);
 
-            Assertions.assertNotEquals(first.getQuestion(), second.getQuestion());
+            assertNotEquals(first.getQuestion(), second.getQuestion());
 
             questions.add(first.getQuestion());
             questions.add(second.getQuestion());
         }
 
-        Assertions.assertEquals(3, questions.size());
+        assertEquals(3, questions.size());
         assertTrue(questions.contains("a"));
         assertTrue(questions.contains("b"));
         assertTrue(questions.contains("c"));
     }
 }
-
-
-

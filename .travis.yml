@@ -1,0 +1,14 @@
+language: java
+
+jdk:
+  - openjdk11
+
+cache:
+  directories:
+    - .autoconf
+    - $HOME/.m2
+
+notifications:
+  email: true
+
+script: mvn clean verify --fae
